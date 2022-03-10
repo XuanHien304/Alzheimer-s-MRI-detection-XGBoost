@@ -1,0 +1,7 @@
+#!/bin/bash
+
+subj_name=`basename $f`
+mri_file=`find $f -type f -regex '.*\/ADNI.*\.nii'`
+echo $subj_name
+echo $mri_file
+nohup recon-all -s $subj_name -i $mri_file -all > $subj_name.out & 
